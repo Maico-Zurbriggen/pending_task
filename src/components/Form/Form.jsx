@@ -3,21 +3,22 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { InputForm, SelectForm } from './components';
 import {schema} from "./models";
 
-const Form = () => {
-    const { control, handleSubmit, formState: { errors } } = useForm({
+const Form = ( { onSubmit } = props ) => {
+    const { control, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: zodResolver(schema),
+        mode: onSubmit,
         defaultValues: {
             content: "",
             importance: "normal",
         },
     });
 
-    const onSubmit = data => {
-        console.log(data);
+    const handleFormSubmit = data => {
+        onSubmit(data, reset);
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(handleFormSubmit)}>
             <InputForm name="content" control={control} label="Ingresar Tarea" type="text" error={errors.content} />
             <SelectForm name="importance" control={control} label="Seleccionar Tarea" />
             <button type="submit" className="button">Subir</button>
