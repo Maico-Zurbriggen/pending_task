@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import 'maico-zurbriggen.github.io/App.css'
-import { Form, Note } from 'maico-zurbriggen.github.io/components';
+import './App.css'
+import { Form, Note } from './components';
 
 function App() {
   const [ notes, setNotes ] = useState([]);
