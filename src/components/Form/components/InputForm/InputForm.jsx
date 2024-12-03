@@ -1,4 +1,5 @@
 import { Controller } from "react-hook-form";
+import './../../Form.css'
 
 const InputForm = ({ name, control, label, type, error } = props) => {
     return (
@@ -8,7 +9,7 @@ const InputForm = ({ name, control, label, type, error } = props) => {
                 name={name} 
                 control={control}
                 render={({ field }) => 
-                    <input id={name} type={type} {...field} className={`form-control ${error ? "is-invalid" : ""}`} />
+                    <input id={name} type={type} {...field} />
                 }
             />
             {error && <p className="error">{error.message}</p>}

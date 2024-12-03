@@ -15,13 +15,13 @@ function App() {
   }
 
   return (
-    <>
+    <div className='column container'>
       <h1>Pending Task</h1>
       <Form onSubmit={onSubmit}></Form>
       {notes.map((note, index) => (
         <Note key={index} content={note.content} importance={note.importance} onClick={() => onDelete(index)}/>
       ))}
-    </>
+    </div>
   )
 }
 

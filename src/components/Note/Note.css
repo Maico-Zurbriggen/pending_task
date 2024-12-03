@@ -1,0 +1,32 @@
+.note {
+    width: 60%;
+    margin-top: 2rem;
+    align-items: baseline;
+    padding: 2rem;
+    border-radius: .5rem;
+}
+
+.data {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media(max-width: 768px) {
+    .data {
+        flex-direction: column;
+    }
+}
+
+.normal {
+    background-color: var(--normals);
+}
+
+.important {
+    background-color: var(--importants);
+}
+
+.text-note{
+    color: var(--fondo);
+    margin-bottom: 1rem;
+}
