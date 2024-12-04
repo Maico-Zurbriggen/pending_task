@@ -1,9 +1,10 @@
+# Este archivo se encarga de configurar como la carga de la pagina a github pages
 name: Deploy 
 
 on: 
   push: 
     branches: 
-      - gh-pages 
+      - main 
 
 permissions: # Asegúrate de agregar esta sección para definir los permisos 
   contents: write

@@ -1,7 +1,7 @@
 import { Controller } from "react-hook-form";
 import './../../Form.css'
 
-const SelectForm = ({ name, control, label, error } = props) => {
+const SelectForm = ({ name, control, label, error } = props) => { //Creamos el componente para el select
     return (
         <div className="form-group">
             <label htmlFor={name}>{label}</label>
@@ -16,7 +16,7 @@ const SelectForm = ({ name, control, label, error } = props) => {
                     </select>
                 }
             />
-            {error && <p className="error">{error.message}</p>}
+            {error && <p className="error">{error.message}</p> /*Mensaje de error que aparece cuando falla la validacion*/}
         </div>
     )
 }
