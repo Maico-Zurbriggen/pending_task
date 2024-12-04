@@ -4,6 +4,9 @@ on:
   push: 
     branches: 
       - main 
+
+permissions: # Asegúrate de agregar esta sección para definir los permisos 
+  contents: write
       
 jobs: 
   build: 
