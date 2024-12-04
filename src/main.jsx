@@ -7,9 +7,7 @@ import App from './App.jsx'
 const basename = process.env.NODE_ENV === 'development' ? '/' : '/pending_task';
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <BrowserRouter basename={basename}> 
-      <App /> 
-    </BrowserRouter>
-  </StrictMode>,
+  <BrowserRouter basename={basename}> 
+    <App /> 
+  </BrowserRouter>
 )
