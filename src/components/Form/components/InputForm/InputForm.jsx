@@ -1,20 +1,22 @@
 import { Controller } from "react-hook-form";
-import './../../Form.css'
+import "../../Form.css";
 
-const InputForm = ({ name, control, label, type, error } = props) => { //Creamos el componente para el input
-    return (
-        <div className="form-group">
-            <label htmlFor={name}>{label}</label>
-            <Controller 
-                name={name} 
-                control={control}
-                render={({ field }) => 
-                    <input id={name} type={type} {...field} />
-                }
-            />
-            {error && <p className="error">{error.message}</p> /*Mensaje de error por si falla la validacion*/}
-        </div>
-    )
-}
+const InputForm = ({ name, control, label, type, error }) => {
+  return (
+    <label className="w-100" htmlFor={name}>
+      {label}
+      <Controller
+        name={name}
+        control={control}
+        render={({ field }) => <input id={name} type={type} {...field} />}
+      />
+      {
+        error && (
+          <p className="error">{error.message}</p>
+        ) /*Mensaje de error por si falla la validacion*/
+      }
+    </label>
+  );
+};
 
 export default InputForm;
