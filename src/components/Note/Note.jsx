@@ -1,15 +1,20 @@
-import './Note.css'
+import { Button } from '../../components';
+import "./Note.css";
 
-const Note = ( { content, importance, onClick } = props ) => { //Creamos el componente Note y extraemos los parametros que recibe
-    return (
-        <div className={`note column ${importance === "normal" ? 'normal' : 'important'}`}>
-            <p className='text-note'>{content}</p>
-            <div className="data">
-                <p className='text-note'>Importance: {importance}</p>
-                <button className="button-note" onClick={onClick}>Eliminar</button>
-            </div>
-        </div>
-    )
-}
+const Note = ({ content, importance, deleteNote }) => {
+  return (
+    <div
+      className={`note container ${
+        importance === "normal" ? "normal" : "important"
+      }`}
+    >
+      <p className="text-note">{content}</p>
+      <div className="data w-100">
+        <p className="text-note">Importance: {importance}</p>
+        <Button text="eliminar" onClick={deleteNote} />
+      </div>
+    </div>
+  );
+};
 
 export default Note;
