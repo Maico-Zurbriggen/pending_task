@@ -1,9 +1,11 @@
 :root {
     --fuente-principal: "Hachi Maru Pop", cursive;
+    --black: #000000;
     --fondo: #0B2545;
     --light: #EEF4ED;
     --principal: #134074;
-    --buttons: #8DA9C4;
+    --buttons: #819cb6;
+    --buttons-hover: #7bb4e9;
     --normals: #D9E2EC;
     --importants: #FFA177;
 }
@@ -23,38 +25,72 @@ html {
 body {
     width: 100%;
     background-color: var(--fondo);
+    color: var(--light);
 }
 
-h1, h2, h3 {
-    margin: 1rem 0;
-    font-size: 2.4rem;
-    color: var(--light);
+h1 {
+    margin: 10px 0;
+    font-size: 24px;
+}
+h2 {
+    font-size: 20px;
+    margin: 10px 0;
 }
 
 p, label {
-    font-size: 1.4rem;
-    color: var(--light);
+    font-size: 14px;
 }
 
 button {
     border: none;
-    border-radius: .2rem;
+    border-radius: 5px;
+    padding: 10px;
     background-color: var(--buttons);
-    color: var(--light);
-    font-weight: bold;
+    color: var(--black);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+button:hover {
+    background-color: var(--buttons-hover);
 }
 
 input, select {
+    border: none;
     margin: 1rem 0;
     width: 100%;
     height: 2.5rem;
-    border: none;
-    border-radius: .2rem;
-    font-weight: bold;
-    color: var(--fondo);
+    border-radius: 5px;
+    font-weight: 700;
 }
 
-.column {
+.container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+
+.links {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+.links a {
+    text-decoration: none;
+    font-size: 10px;
+    color: var(--light);
+}
+.links a:hover {
+    color: var(--buttons-hover);
+    cursor: pointer;
+}
+
+.close-buttom {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+.w-100 {
+    width: 100%;
 }
