@@ -1,5 +1,5 @@
+//Modelo que contiene las rutas validas de nuestra pagina
 const AppRoutes = {
-  //Modelo que contiene las rutas validas de nuestra pagina
   register: "/pending_task/register",
   signIn: "/pending_task/signIn",
   private: {

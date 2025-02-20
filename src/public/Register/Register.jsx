@@ -5,6 +5,8 @@ import { AppRoutes, schemaRegister } from "../../models";
 import { InputForm } from "../../components/Form/components";
 import { register } from "../../api";
 
+//Componente para el registro de usuarios
+
 const Register = ({ modifyAuth, auth }) => {
   const {
     control,
@@ -21,21 +23,18 @@ const Register = ({ modifyAuth, auth }) => {
     },
     mode: "onSubmit",
     reValidateMode: "onSubmit",
-  });
+  }); //Define que utilizara el esquema del registro schemaRegister
 
+  //Metodo para registrar a un usuario
   const registerUser = async (data) => {
     try {
-      delete data.confirmPassword;
-      await register(data);
-      reset();
-      modifyAuth(true);
+      await register(data, reset, modifyAuth);
     } catch (error) {
       console.error("Algo salio mal: ", error);
-      modifyAuth(false);
     }
   };
 
-  if (auth) {
+  if (auth) { //Redirigimos a private si esta autenticado
     return <Navigate to={AppRoutes.private.root} />;
   }
 

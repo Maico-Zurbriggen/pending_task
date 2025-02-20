@@ -1,6 +1,6 @@
-import "./Button.css";
+//Componente para los botones
 
-const Button = ({ onSubmit, text, bg }) => {
+const Button = ({ onSubmit, text }) => {
   return <button onSubmit={onSubmit}>{text}</button>;
 };
 

@@ -91,6 +91,11 @@ input, select {
     right: 10px;
 }
 
+.error {
+    color: var(--importants);
+    margin-bottom: 5px;
+}
+
 .w-100 {
     width: 100%;
 }

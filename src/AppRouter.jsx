@@ -10,16 +10,16 @@ const basename =
   process.env.NODE_ENV === "development" ? "/" : "/pending_task/"; //Especificamos la base de nuestras rutas
 
 const AppRouter = () => {
-  const [auth, setAuth] = useState(false);
+  const [auth, setAuth] = useState(false); //Estado para determinar si un usuario esta logeado o no
 
-  const modifyAuth = useCallback((state) => {
+  const modifyAuth = useCallback((state) => { //Creamos el metodo para cambiar el estado de la autenticacion
     setAuth(state);
   }, []);
 
   return (
     <BrowserRouter basename={basename}>
       <h1>Pending Task</h1>
-      <RoutesWithNotFound>
+      <RoutesWithNotFound> {/**Componente para filtrar rutas no validas */}
         <Route
           path="/pending_task/"
           element={<Navigate to={AppRoutes.signIn} />}

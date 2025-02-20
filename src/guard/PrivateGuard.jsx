@@ -2,6 +2,8 @@ import { Navigate, Outlet } from "react-router-dom";
 import { AppRoutes } from "../models";
 import { useEffect } from "react";
 
+//Componente que determina si un usuario cumple o no con los requisitos para ingresar a una url privada
+
 export const PrivateGuard = ({ modifyAuth, auth }) => {
   useEffect(() => {
     const verifiedAuth = async () => {
@@ -13,18 +15,15 @@ export const PrivateGuard = ({ modifyAuth, auth }) => {
 
         if (response.ok) {
           modifyAuth(true);
-        } else {
-          modifyAuth(false);
         }
       } catch (error) {
+        console.error("Error al autenticar", error);
         modifyAuth(false);
       }
     };
 
     verifiedAuth();
   }, []);
-
-  console.log(auth);
 
   return auth ? <Outlet /> : <Navigate to={AppRoutes.signIn} />;
 };

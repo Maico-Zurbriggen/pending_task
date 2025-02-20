@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+//Modelo para el formulario de inicio de sesion
+
 const registeredPassword = "clave123";
 
 export const schemaUsers = z.object({

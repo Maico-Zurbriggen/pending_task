@@ -1,9 +1,9 @@
 .note {
     width: 60%;
     margin-top: 20px;
-    align-items: baseline;
     padding: 20px;
     border-radius: 5px;
+    align-items: baseline;
 }
 
 .data {

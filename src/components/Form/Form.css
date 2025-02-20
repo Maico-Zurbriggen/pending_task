@@ -6,8 +6,3 @@
     border-radius: 5px;
     background-color: var(--principal);
 }
-
-.error {
-    color: var(--importants);
-    margin-bottom: 5px;
-}

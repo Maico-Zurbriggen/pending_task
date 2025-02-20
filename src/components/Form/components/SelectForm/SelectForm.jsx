@@ -1,6 +1,8 @@
 import { Controller } from "react-hook-form";
 import "../../Form.css";
 
+//Componente para los select de un formulario
+
 const SelectForm = ({ name, control, label, error }) => {
   return (
     <label className="w-100" htmlFor={name}>

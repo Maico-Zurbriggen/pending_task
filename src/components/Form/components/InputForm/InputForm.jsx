@@ -1,6 +1,8 @@
 import { Controller } from "react-hook-form";
 import "../../Form.css";
 
+//Componente para los input de un formulario
+
 const InputForm = ({ name, control, label, type, error }) => {
   return (
     <label className="w-100" htmlFor={name}>

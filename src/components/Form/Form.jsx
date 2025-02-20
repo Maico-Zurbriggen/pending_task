@@ -5,6 +5,8 @@ import { schemaNotes } from "../../models";
 import { InputForm, SelectForm } from "./components";
 import "./Form.css";
 
+//Componente para los formularios
+
 const Form = ({ addNote, notes, modifyNotes }) => {
   const {
     control,
@@ -12,18 +14,17 @@ const Form = ({ addNote, notes, modifyNotes }) => {
     formState: { errors },
     reset,
   } = useForm({
-    resolver: zodResolver(schemaNotes), //Indicamos que el formulario usara el esquema que creamos
+    resolver: zodResolver(schemaNotes), //Indicamos que el formulario usara el esquema schemaNotes
     defaultValues: {
-      //Definimos valores para los campos por defecto
       content: "",
       importance: "",
     },
-    mode: "onSubmit", //Indicamos cuando se hace la validacion
-    reValidateMode: "onSubmit", //Indicamos cuando se debe revalidar
+    mode: "onSubmit",
+    reValidateMode: "onSubmit",
   });
 
+  //Metodo para llamar a la funcion de agregar nota agregando el parametro data
   const handleFormSubmit = useCallback((data) => {
-    //Llamamos al metodo onSubmit pasando como parametro reset
     addNote(notes, modifyNotes, data, reset);
   });
 

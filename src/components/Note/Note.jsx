@@ -1,5 +1,6 @@
-import { Button } from '../../components';
 import "./Note.css";
+
+//Componente para las notas
 
 const Note = ({ content, importance, deleteNote }) => {
   return (
@@ -11,7 +12,9 @@ const Note = ({ content, importance, deleteNote }) => {
       <p className="text-note">{content}</p>
       <div className="data w-100">
         <p className="text-note">Importance: {importance}</p>
-        <Button text="eliminar" onClick={deleteNote} />
+        <button onClick={deleteNote}>
+          Eliminar
+        </button>
       </div>
     </div>
   );

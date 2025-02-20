@@ -5,7 +5,9 @@ import { InputForm } from "../../components/Form/components";
 import { AppRoutes, schemaUsers } from "../../models";
 import { initSession } from "../../api";
 
-const SignIn = ({ modifyAuth, auth, navigate }) => {
+//Componente para iniciar sesion
+
+const SignIn = ({ modifyAuth, auth }) => {
   const {
     control,
     handleSubmit,
@@ -19,23 +21,18 @@ const SignIn = ({ modifyAuth, auth, navigate }) => {
     },
     mode: "onSubmit",
     reValidateMode: "onSubmit",
-  });
+  });//Define que utilizara el esquema schemaUsers para el formulario
 
+  //Metodo para verificar al usuario y autenticarlo
   const handleLogin = async (data) => {
     try {
-      const response = await initSession(data);
-
-      if (response.ok) {
-        modifyAuth(true);
-        reset();
-      }
+      const response = await initSession(data, reset, modifyAuth);
     } catch (error) {
-      modifyAuth(false);
       console.error("Algo salio mal", error);
     }
   };
 
-  if (auth) {
+  if (auth) { //Redirigimos a private si esta autenticado
     return <Navigate to={AppRoutes.private.root} />;
   }
 
