@@ -3,11 +3,12 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { schemaNotes } from "../../models";
 import { InputForm, SelectForm } from "./components";
+import { addNote } from "../../api";
 import "./Form.css";
 
 //Componente para los formularios
 
-const Form = ({ addNote, notes, modifyNotes }) => {
+const Form = ({ notes, modifyNotes, user }) => {
   const {
     control,
     handleSubmit,
@@ -25,7 +26,7 @@ const Form = ({ addNote, notes, modifyNotes }) => {
 
   //Metodo para llamar a la funcion de agregar nota agregando el parametro data
   const handleFormSubmit = useCallback((data) => {
-    addNote(notes, modifyNotes, data, reset);
+    addNote(notes, modifyNotes, data, reset, user);
   });
 
   return (

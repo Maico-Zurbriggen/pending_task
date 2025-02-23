@@ -7,11 +7,12 @@ import { initSession } from "../../api";
 
 //Componente para iniciar sesion
 
-const SignIn = ({ modifyAuth, auth }) => {
+const SignIn = ({ modifyUser, user }) => {
   const {
     control,
     handleSubmit,
     formState: { errors },
+    setError,
     reset,
   } = useForm({
     resolver: zodResolver(schemaUsers),
@@ -26,13 +27,13 @@ const SignIn = ({ modifyAuth, auth }) => {
   //Metodo para verificar al usuario y autenticarlo
   const handleLogin = async (data) => {
     try {
-      const response = await initSession(data, reset, modifyAuth);
+      const response = await initSession(data, reset, modifyUser, setError);
     } catch (error) {
       console.error("Algo salio mal", error);
     }
   };
 
-  if (auth) { //Redirigimos a private si esta autenticado
+  if (Object.values(user).length) { //Redirigimos a private si esta autenticado
     return <Navigate to={AppRoutes.private.root} />;
   }
 

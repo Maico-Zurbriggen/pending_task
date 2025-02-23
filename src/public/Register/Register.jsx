@@ -7,7 +7,7 @@ import { register } from "../../api";
 
 //Componente para el registro de usuarios
 
-const Register = ({ modifyAuth, auth }) => {
+const Register = ({ modifyUser, user }) => {
   const {
     control,
     handleSubmit,
@@ -28,13 +28,13 @@ const Register = ({ modifyAuth, auth }) => {
   //Metodo para registrar a un usuario
   const registerUser = async (data) => {
     try {
-      await register(data, reset, modifyAuth);
+      await register(data, reset, modifyUser);
     } catch (error) {
       console.error("Algo salio mal: ", error);
     }
   };
 
-  if (auth) { //Redirigimos a private si esta autenticado
+  if (Object.values(user).length) { //Redirigimos a private si esta autenticado
     return <Navigate to={AppRoutes.private.root} />;
   }
 
