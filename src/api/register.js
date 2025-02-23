@@ -1,6 +1,6 @@
 //Funcion que realiza la solicitud para almacenar un nuevo usuario
 
-export const register = async (data, reset, modifyAuth) => {
+export const register = async (data, reset, modifyUser) => {
   delete data.confirmPassword;
   try {
     const response = await fetch('http://localhost:3000/api/users', {
@@ -12,11 +12,12 @@ export const register = async (data, reset, modifyAuth) => {
     });
 
     if (response.ok) {
+      const responseData = await response.json();
       reset();
-      modifyAuth(true);
+      modifyUser(responseData);
     }
   } catch (error) {
     console.error('Error de red: ', error);
-    modifyAuth(false);
+    modifyUser({});
   }
 }

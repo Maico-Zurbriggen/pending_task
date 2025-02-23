@@ -1,23 +1,38 @@
 //Funcion que verifica si existe un determinado usuario
 
-export const initSession = async (data, reset, modifyAuth) => {
+export const initSession = async (data, reset, modifyUser, setError) => {
   try {
-    const response = await fetch('http://localhost:3000/api/login', {
-      method: 'POST',
+    const response = await fetch("http://localhost:3000/api/login", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-      credentials: 'include',
+      credentials: "include",
     });
 
     if (response.ok) {
-      reset()
-      modifyAuth(true);
+      const responseData = await response.json();
+
+      if (responseData.password !== data.password) {
+        setError("password", {
+          type: "manual",
+          message: "Contraseña inválida",
+        });
+
+        return;
+      }
+
+      reset();
+      modifyUser(responseData);
+    } else {
+      setError("name", {
+        type: "manual",
+        message: "Usuario no encontrado",
+      });
     }
   } catch (error) {
-    modifyAuth(false);
+    modifyUser({});
     console.error("Credenciales invalidas", error);
   }
-  
-}
+};

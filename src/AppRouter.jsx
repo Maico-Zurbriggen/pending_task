@@ -10,10 +10,10 @@ const basename =
   process.env.NODE_ENV === "development" ? "/" : "/pending_task/"; //Especificamos la base de nuestras rutas
 
 const AppRouter = () => {
-  const [auth, setAuth] = useState(false); //Estado para determinar si un usuario esta logeado o no
+  const [user, setUser] = useState({}); //Estado para determinar si un usuario esta logeado o no
 
-  const modifyAuth = useCallback((state) => { //Creamos el metodo para cambiar el estado de la autenticacion
-    setAuth(state);
+  const modifyUser = useCallback((userAutenticated) => { //Creamos el metodo para cambiar el estado de la autenticacion
+    setUser(userAutenticated);
   }, []);
 
   return (
@@ -24,12 +24,12 @@ const AppRouter = () => {
           path="/pending_task/"
           element={<Navigate to={AppRoutes.signIn} />}
         />
-        <Route path={AppRoutes.register} element={<Register modifyAuth={modifyAuth} auth={auth} />} />
-        <Route path={AppRoutes.signIn} element={<SignIn modifyAuth={modifyAuth} auth={auth} />} />
-        <Route element={<PrivateGuard modifyAuth={modifyAuth} auth={auth} />}>
+        <Route path={AppRoutes.register} element={<Register modifyUser={modifyUser} user={user} />} />
+        <Route path={AppRoutes.signIn} element={<SignIn modifyUser={modifyUser} user={user} />} />
+        <Route element={<PrivateGuard modifyUser={modifyUser} user={user} />}>
           <Route
             path={`${AppRoutes.private.root}/*`}
-            element={<PrivateRouter />}
+            element={<PrivateRouter modifyUser={modifyUser} user={user} />}
           />
         </Route>
       </RoutesWithNotFound>

@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 //Componente que determina si un usuario cumple o no con los requisitos para ingresar a una url privada
 
-export const PrivateGuard = ({ modifyAuth, auth }) => {
+export const PrivateGuard = ({ modifyUser, user }) => {
   useEffect(() => {
     const verifiedAuth = async () => {
       try {
@@ -13,17 +13,19 @@ export const PrivateGuard = ({ modifyAuth, auth }) => {
           credentials: "include",
         });
 
-        if (response.ok) {
-          modifyAuth(true);
+        if (!response.ok) {
+          modifyUser({});
         }
       } catch (error) {
         console.error("Error al autenticar", error);
-        modifyAuth(false);
+        modifyUser({});
       }
     };
 
     verifiedAuth();
   }, []);
 
-  return auth ? <Outlet /> : <Navigate to={AppRoutes.signIn} />;
+  console.log(user);
+
+  return Object.values(user).length ? <Outlet /> : <Navigate to={AppRoutes.signIn} />;
 };
