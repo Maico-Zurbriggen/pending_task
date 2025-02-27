@@ -1,51 +1,54 @@
 import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { schemaNotes } from "../../models";
 import { InputForm, SelectForm } from "./components";
-import { addNote } from "../../api";
 import "./Form.css";
 
 //Componente para los formularios
 
-const Form = ({ notes, modifyNotes }) => {
+const Form = ({ buttonText, inputs, selects = [], schema, defaultValues, onSubmit }) => {
   const {
     control,
     handleSubmit,
     formState: { errors },
+    setError,
     reset,
   } = useForm({
-    resolver: zodResolver(schemaNotes), //Indicamos que el formulario usara el esquema schemaNotes
-    defaultValues: {
-      content: "",
-      importance: "",
-    },
+    resolver: zodResolver(schema), //Indicamos que el formulario usara el esquema schemaNotes
+    defaultValues: defaultValues,
     mode: "onSubmit",
     reValidateMode: "onSubmit",
   });
 
   //Metodo para llamar a la funcion de agregar nota agregando el parametro data
   const handleFormSubmit = useCallback((data) => {
-    addNote(notes, modifyNotes, data, reset);
+    onSubmit(data, reset, setError);
   });
 
   return (
     <form className="form container" onSubmit={handleSubmit(handleFormSubmit)}>
-      <InputForm
-        name="content"
-        control={control}
-        label="Enter Task:"
-        type="text"
-        error={errors.content}
-      />
-      <SelectForm
-        name="importance"
-        control={control}
-        label="Select Importance:"
-        error={errors.importance}
-      />
+      {inputs.map((input, index) => (
+        <InputForm
+          key={index}
+          name={input.name}
+          control={control}
+          label={input.label}
+          type={input.type}
+          error={errors[input.name]}
+        />
+      ))}
+      {selects.map((select, index) => (
+        <SelectForm
+          key={index}
+          name={select.name}
+          control={control}
+          label={select.label}
+          options={select.options}
+          error={errors[select.name]}
+        />
+      ))}
       <button type="submit" className="w-100">
-        SUBIR
+        {buttonText}
       </button>
     </form>
   );

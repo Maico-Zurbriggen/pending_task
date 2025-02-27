@@ -3,7 +3,7 @@ import "../../Form.css";
 
 //Componente para los select de un formulario
 
-const SelectForm = ({ name, control, label, error }) => {
+const SelectForm = ({ name, control, label, error, options }) => {
   return (
     <label className="w-100" htmlFor={name}>
       {label}
@@ -15,8 +15,9 @@ const SelectForm = ({ name, control, label, error }) => {
             <option value="" default>
               --Select--
             </option>
-            <option value={"normal"}>Normal</option>
-            <option value={"important"}>Importante</option>
+            {options.map((option, index) => (
+              <option key={index} value={option.value}>{option.label}</option>
+            ))}
           </select>
         )}
       />

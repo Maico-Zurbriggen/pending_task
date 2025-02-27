@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { Form, Note } from "../../components";
-import { deleteNote } from "../../api";
+import { inputsFormPrincipal, selectsFormPrincipal, defaultValuesFormPrincipal } from "../../constants";
+import { schemaNotes } from "../../models";
+import { deleteNote, addNote } from "../../api";
 
 //Componente principal de la aplicacion
 
 export const Principal = ({ notes, modifyNotes }) => {
-
   useEffect(() => {
     const getNotes = async () => {
       await fetch("http://localhost:3000/api/notes/user", {
@@ -36,9 +37,13 @@ export const Principal = ({ notes, modifyNotes }) => {
     getNotes();
   }, []);
 
+  const handleAddNote = async (data, reset) => {
+    await addNote(notes, modifyNotes, data, reset);
+  }
+
   return (
     <>
-      <Form notes={notes} modifyNotes={modifyNotes} />
+      <Form buttonText="subir" inputs={inputsFormPrincipal} selects={selectsFormPrincipal} schema={schemaNotes} defaultValues={defaultValuesFormPrincipal} onSubmit={handleAddNote} />
       {notes.map((note, index) => {
         return (
           <Note
