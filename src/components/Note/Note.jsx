@@ -5,9 +5,7 @@ import "./Note.css";
 const Note = ({ content, importance, deleteNote }) => {
   return (
     <div
-      className={`note container ${
-        importance === "normal" ? "normal" : "important"
-      }`}
+      className={`note container ${importance}`}
     >
       <p className="text-note">{content}</p>
       <div className="data w-100">

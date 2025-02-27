@@ -5,9 +5,10 @@
     --light: #EEF4ED;
     --principal: #134074;
     --buttons: #819cb6;
-    --buttons-hover: #7bb4e9;
-    --normals: #D9E2EC;
-    --importants: #FFA177;
+    --hover: #7bb4e9;
+    --lows: #A8C5DA;
+    --mediums: #FFCC66;
+    --highs: #FF7043;
 }
 
 *, ::after, ::before {
@@ -52,7 +53,7 @@ button {
     text-transform: uppercase;
 }
 button:hover {
-    background-color: var(--buttons-hover);
+    background-color: var(--hover);
 }
 
 input, select {
@@ -81,7 +82,7 @@ input, select {
     color: var(--light);
 }
 .links a:hover {
-    color: var(--buttons-hover);
+    color: var(--hover);
     cursor: pointer;
 }
 

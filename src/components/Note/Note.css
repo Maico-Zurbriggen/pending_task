@@ -17,12 +17,16 @@
     }
 }
 
-.normal {
-    background-color: var(--normals);
+.low {
+    background-color: var(--lows);
 }
 
-.important {
-    background-color: var(--importants);
+.medium {
+    background-color: var(--mediums);
+}
+
+.high {
+    background-color: var(--highs);
 }
 
 .text-note{
