@@ -1,38 +1,31 @@
 //Funcion que verifica si existe un determinado usuario
 
-export const initSession = async (data, reset, modifyUser, setError) => {
-  try {
-    const response = await fetch("http://localhost:3000/api/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-      credentials: "include",
-    });
-
-    if (response.ok) {
-      const responseData = await response.json();
-
-      if (responseData.password !== data.password) {
-        setError("password", {
-          type: "manual",
-          message: "Contraseña inválida",
+export const initSession = async (data, reset, setError) => {
+  await fetch("http://localhost:3000/api/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+    credentials: "include",
+  })
+    .then((response) => {
+      if (response.ok) {
+        reset();
+        window.location.href = "http://localhost:5173/pending_task/private";
+      } else {
+        response.json().then((response) => {
+          setError(response.input, {
+            type: "manual",
+            message: response.errorMessage,
+          });
         });
-
-        return;
+        if (response.status === 409) {
+          window.location.href = "http://localhost:5173/pending_task/private";
+        }
       }
-
-      reset();
-      modifyUser(responseData);
-    } else {
-      setError("name", {
-        type: "manual",
-        message: "Usuario no encontrado",
-      });
-    }
-  } catch (error) {
-    modifyUser({});
-    console.error("Credenciales invalidas", error);
-  }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
 };

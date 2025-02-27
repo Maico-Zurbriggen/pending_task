@@ -1,4 +1,3 @@
-import { Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AppRoutes, schemaRegister } from "../../models";
@@ -7,7 +6,7 @@ import { register } from "../../api";
 
 //Componente para el registro de usuarios
 
-const Register = ({ modifyUser, user }) => {
+const Register = () => {
   const {
     control,
     handleSubmit,
@@ -27,16 +26,8 @@ const Register = ({ modifyUser, user }) => {
 
   //Metodo para registrar a un usuario
   const registerUser = async (data) => {
-    try {
-      await register(data, reset, modifyUser);
-    } catch (error) {
-      console.error("Algo salio mal: ", error);
-    }
+    await register(data, reset);
   };
-
-  if (Object.values(user).length) { //Redirigimos a private si esta autenticado
-    return <Navigate to={AppRoutes.private.root} />;
-  }
 
   return (
     <>

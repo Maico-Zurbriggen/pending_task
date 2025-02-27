@@ -1,4 +1,3 @@
-import { Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { InputForm } from "../../components/Form/components";
@@ -7,7 +6,7 @@ import { initSession } from "../../api";
 
 //Componente para iniciar sesion
 
-const SignIn = ({ modifyUser, user }) => {
+const SignIn = () => {
   const {
     control,
     handleSubmit,
@@ -26,16 +25,10 @@ const SignIn = ({ modifyUser, user }) => {
 
   //Metodo para verificar al usuario y autenticarlo
   const handleLogin = async (data) => {
-    try {
-      const response = await initSession(data, reset, modifyUser, setError);
-    } catch (error) {
-      console.error("Algo salio mal", error);
+    if (!errors.length) {
+      await initSession(data, reset, setError);
     }
   };
-
-  if (Object.values(user).length) { //Redirigimos a private si esta autenticado
-    return <Navigate to={AppRoutes.private.root} />;
-  }
 
   return (
     <>
