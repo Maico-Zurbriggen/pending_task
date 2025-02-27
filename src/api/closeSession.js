@@ -1,12 +1,8 @@
 //Funcion para cerrar la sesion del usuario
 
-export const closeSession = async (notes, modifyNotes) => {
+export const closeSession = async (modifyNotes) => {
   await fetch("http://localhost:3000/api/logout", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(notes),
+    method: "GET",
     credentials: "include",
   })
     .then((response) => {

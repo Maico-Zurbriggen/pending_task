@@ -13,6 +13,7 @@ export const register = async (data, reset) => {
       if (response.ok) {
         reset();
         alert("Usuario registrado con exito");
+        window.location.href = "http://localhost:5173/pending_task/signIn";
       } else {
         throw new Error("Error al registrar usuario");
       }

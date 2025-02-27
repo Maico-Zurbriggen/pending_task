@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { schemaNotes } from "../../models";
 import { InputForm, SelectForm } from "./components";
-import { addNote } from "../../utils";
+import { addNote } from "../../api";
 import "./Form.css";
 
 //Componente para los formularios

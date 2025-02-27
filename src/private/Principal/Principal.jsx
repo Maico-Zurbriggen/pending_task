@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Form, Note } from "../../components";
-import { deleteNote } from "../../utils";
+import { deleteNote } from "../../api";
 
 //Componente principal de la aplicacion
 
@@ -24,6 +24,7 @@ export const Principal = ({ notes, modifyNotes }) => {
             const responseData = await response.json();
             modifyNotes(responseData);
           } else {
+            window.location.href = "http://localhost:5173/pending_task/signIn";
             throw new Error("Usuario no autenticado");
           }
         })
@@ -44,7 +45,7 @@ export const Principal = ({ notes, modifyNotes }) => {
             key={index}
             content={note.content}
             importance={note.importance}
-            deleteNote={() => deleteNote(notes, modifyNotes, index)}
+            deleteNote={() => deleteNote(notes, modifyNotes, index, note.content)}
           />
         );
       })}
