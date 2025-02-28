@@ -7,8 +7,8 @@ import { register } from "../../api";
 
 const Register = () => {
   //Metodo para registrar a un usuario
-  const handleRegister = async (data, reset) => {
-    await register(data, reset);
+  const handleRegister = async (data, reset, setError) => {
+    await register(data, reset, setError);
   };
 
   return (
