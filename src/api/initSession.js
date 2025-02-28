@@ -1,7 +1,7 @@
 //Funcion que verifica si existe un determinado usuario
 
-export const initSession = async (data, reset, setError) => {
-  await fetch("http://localhost:3000/api/login", {
+export const initSession = (data, reset, setError) => {
+  fetch("http://localhost:3000/api/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

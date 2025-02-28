@@ -9,6 +9,8 @@
     --lows: #A8C5DA;
     --mediums: #FFCC66;
     --highs: #FF7043;
+    --errors: #FF3333;
+    --success: #4CAF50;
 }
 
 *, ::after, ::before {
@@ -69,6 +71,7 @@ input, select {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
 }
 
 .links {
@@ -93,8 +96,11 @@ input, select {
 }
 
 .error {
-    color: var(--importants);
-    margin-bottom: 5px;
+    color: var(--errors);
+}
+
+.exito {
+    color: var(--success);
 }
 
 .w-100 {

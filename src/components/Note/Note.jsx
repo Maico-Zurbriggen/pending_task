@@ -4,7 +4,7 @@ import "./Note.css";
 
 export const Note = ({ content, importance, deleteNote }) => {
   return (
-    <div
+    <article
       className={`note container ${importance}`}
     >
       <p className="text-note">{content}</p>
@@ -14,6 +14,6 @@ export const Note = ({ content, importance, deleteNote }) => {
           Eliminar
         </button>
       </div>
-    </div>
+    </article>
   );
 };

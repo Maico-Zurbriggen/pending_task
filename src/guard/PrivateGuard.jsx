@@ -8,8 +8,8 @@ export const PrivateGuard = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(null);
 
   useEffect(() => {
-    const verifyAuth = async () => {
-      await fetch("http://localhost:3000/api/protected", {
+    const verifyAuth = () => {
+      fetch("http://localhost:3000/api/protected", {
         method: "GET",
         credentials: "include",
       })
@@ -17,9 +17,9 @@ export const PrivateGuard = () => {
           if (!response.ok) {
             setIsAuthenticated(false);
             throw new Error("Usuario no autenticado");
-          } else {
-            setIsAuthenticated(true);
           }
+
+          setIsAuthenticated(true);
         })
         .catch((error) => {
           console.error("Error:", error);
@@ -31,7 +31,6 @@ export const PrivateGuard = () => {
   }, []);
 
   if (isAuthenticated === null) {
-    console.log("cargando...");
     return <h1>Cargando...</h1>
   }
 

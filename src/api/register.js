@@ -1,8 +1,9 @@
 //Funcion que realiza la solicitud para almacenar un nuevo usuario
 
-export const register = async (data, reset, setError) => {
+export const register = (data, reset, setError, modifySuccess) => {
   delete data.confirmPassword;
-  await fetch("http://localhost:3000/api/users", {
+
+  fetch("http://localhost:3000/api/users", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -12,8 +13,11 @@ export const register = async (data, reset, setError) => {
     .then((response) => {
       if (response.ok) {
         reset();
-        alert("Usuario registrado con exito");
-        window.location.href = "http://localhost:5173/pending_task/signIn";
+        modifySuccess();
+        setTimeout(() => {
+          modifySuccess();
+          window.location.href = "http://localhost:5173/pending_task/signIn";
+        }, 300);
       } else {
         response.json().then((response) => {
           setError(response.input, {

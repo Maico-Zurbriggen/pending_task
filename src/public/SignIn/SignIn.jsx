@@ -7,8 +7,8 @@ import { initSession } from "../../api";
 
 const SignIn = () => {
   //Metodo para verificar al usuario y autenticarlo
-  const handleLogin = async (data, reset, setError) => {
-    await initSession(data, reset, setError);
+  const handleLogin = (data, reset, setError) => {
+    initSession(data, reset, setError);
   };
 
   return (
