@@ -8,7 +8,6 @@ export const closeSession = async (modifyNotes) => {
     .then((response) => {
       if (response.ok) {
         window.location.href = "http://localhost:5173/pending_task/signIn";
-        modifyNotes([]);
       } else {
         window.location.href = "http://localhost:5173/pending_task/signIn";
         throw new Error("No hay sesion activa");

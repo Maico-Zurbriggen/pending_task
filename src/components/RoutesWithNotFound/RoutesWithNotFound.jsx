@@ -2,7 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 
 //Componente para rutas no válidas
 
-const RoutesWithNotFound = ({ children }) => {
+export const RoutesWithNotFound = ({ children }) => {
   return (
     <Routes>
       {children} {/**Se ubica al final de las otras rutas */}
@@ -11,5 +11,3 @@ const RoutesWithNotFound = ({ children }) => {
     </Routes>
   );
 };
-
-export default RoutesWithNotFound;

@@ -1,4 +1,4 @@
-import { Form } from "../../components";
+import { Form, Links } from "../../components";
 import { AppRoutes, schemaUsers } from "../../models";
 import { inputsFormSignIn, defaultValuesFormSignIn } from "../../constants";
 import { initSession } from "../../api";
@@ -15,12 +15,7 @@ const SignIn = () => {
     <>
       <h2>INICIE SESION</h2>
       <Form buttonText="ingresar" inputs={inputsFormSignIn} schema={schemaUsers} defaultValues={defaultValuesFormSignIn} onSubmit={handleLogin} />
-      <footer className="links">
-        <a href={`${AppRoutes.register}`}>No tienes una cuenta? Registrate</a>
-        <a href={`${AppRoutes.signIn}`}>
-          Has olvidado tu contraseña? Recuperala
-        </a>
-      </footer>
+      <Links urlLeft={AppRoutes.register} textLeft="No tienes una cuenta? Regístrate" urlRight={AppRoutes.register} textRight="Has olvidado tu contraseña? Recupérala" />
     </>
   );
 };

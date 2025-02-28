@@ -16,7 +16,7 @@ export const PrivateRouter = () => {
 
   //Metodo para cerrar sesion
   const cerrarSesion = () => {
-    closeSession(notes, modifyNotes);
+    closeSession();
   }
 
   return (

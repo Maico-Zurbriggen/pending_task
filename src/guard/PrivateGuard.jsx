@@ -31,6 +31,7 @@ export const PrivateGuard = () => {
   }, []);
 
   if (isAuthenticated === null) {
+    console.log("cargando...");
     return <h1>Cargando...</h1>
   }
 

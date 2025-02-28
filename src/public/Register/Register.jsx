@@ -1,4 +1,4 @@
-import { Form } from "../../components";
+import { Form, Links } from "../../components";
 import { AppRoutes, schemaRegister } from "../../models";
 import { inputsFormRegister, defaultValuesFormRegister } from "../../constants";
 import { register } from "../../api";
@@ -15,12 +15,7 @@ const Register = () => {
     <>
       <h2>Registrese</h2>
       <Form buttonText="registrarse" inputs={inputsFormRegister} schema={schemaRegister} defaultValues={defaultValuesFormRegister} onSubmit={handleRegister} />
-      <footer className="links">
-        <a href={`${AppRoutes.signIn}`}>Ya tienes una cuenta? Inicia sesión</a>
-        <a href={`${AppRoutes.signIn}`}>
-          Has olvidado tu contraseña? Recuperala
-        </a>
-      </footer>
+      <Links urlLeft={AppRoutes.signIn} textLeft="Ya tienes una cuenta? Inicia sesión" urlRight={AppRoutes.signIn} textRight="Has olvidado tu contraseña? Recupérala" />
     </>
   );
 };

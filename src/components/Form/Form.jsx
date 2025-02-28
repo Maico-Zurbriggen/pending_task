@@ -6,7 +6,7 @@ import "./Form.css";
 
 //Componente para los formularios
 
-const Form = ({ buttonText, inputs, selects = [], schema, defaultValues, onSubmit }) => {
+export const Form = ({ buttonText, inputs, selects = [], schema, defaultValues, onSubmit }) => {
   const {
     control,
     handleSubmit,
@@ -53,5 +53,3 @@ const Form = ({ buttonText, inputs, selects = [], schema, defaultValues, onSubmi
     </form>
   );
 };
-
-export default Form;

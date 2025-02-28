@@ -2,7 +2,7 @@ import "./Note.css";
 
 //Componente para las notas
 
-const Note = ({ content, importance, deleteNote }) => {
+export const Note = ({ content, importance, deleteNote }) => {
   return (
     <div
       className={`note container ${importance}`}
@@ -17,5 +17,3 @@ const Note = ({ content, importance, deleteNote }) => {
     </div>
   );
 };
-
-export default Note;
