@@ -42,8 +42,8 @@ export const Principal = ({ notes, modifyNotes }) => {
     getNotes();
   }, []);
 
-  const handleAddNote = async (data, reset) => {
-    await addNote(notes, modifyNotes, data, reset);
+  const handleAddNote = async (data, reset, setError) => {
+    await addNote(notes, modifyNotes, data, reset, setError);
   };
 
   return (

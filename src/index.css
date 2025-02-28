@@ -97,10 +97,12 @@ input, select {
 
 .error {
     color: var(--errors);
+    margin-bottom: 10px;
 }
 
 .exito {
     color: var(--success);
+    margin-bottom: 10px;
 }
 
 .w-100 {

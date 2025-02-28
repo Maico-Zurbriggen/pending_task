@@ -17,7 +17,7 @@ export const deleteNote = async (notes, modifyNotes, indexToDelete, content) => 
   }
 }
 
-export const addNote = async (notes, modifyNotes, data, reset) => {
+export const addNote = async (notes, modifyNotes, data, reset, setError) => {
   try {
     const response = await fetch("http://localhost:3000/api/notes", {
       method: "POST",
@@ -29,6 +29,8 @@ export const addNote = async (notes, modifyNotes, data, reset) => {
     });
 
     if (!response.ok) {
+      const { input, errorMessage } = await response.json();
+      setError(input, { message: errorMessage });
       throw new Error("Error al agregar la nota");
     }
 
