@@ -1,16 +1,20 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Form, Note } from "../../components";
 import {
   inputsFormPrincipal,
   selectsFormPrincipal,
   defaultValuesFormPrincipal,
 } from "../../constants";
+import { SkeletonPrincipal } from "../../skeletons";
 import { schemaNotes } from "../../models";
 import { deleteNote, addNote } from "../../api";
+import 'react-loading-skeleton/dist/skeleton.css';
 
 //Componente principal de la aplicacion
 
 export const Principal = ({ notes, modifyNotes }) => {
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const getNotes = () => {
       fetch("http://localhost:3000/api/notes/user", {
@@ -25,6 +29,8 @@ export const Principal = ({ notes, modifyNotes }) => {
             window.location.href = "http://localhost:5173/pending_task/signIn";
             throw new Error("Usuario no autenticado");
           }
+
+          setLoading(false);
 
           if (response.status === 204) {
             return;
@@ -46,7 +52,9 @@ export const Principal = ({ notes, modifyNotes }) => {
     await addNote(notes, modifyNotes, data, reset, setError);
   };
 
-  return (
+  return loading ? (
+    <SkeletonPrincipal />
+  ) : (
     <>
       <Form
         buttonText="subir"

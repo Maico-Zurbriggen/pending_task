@@ -1,0 +1,1 @@
+export { SkeletonPrincipal } from './SkeletonPrincipal';
