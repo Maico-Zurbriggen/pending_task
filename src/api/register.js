@@ -1,9 +1,9 @@
 //Funcion que realiza la solicitud para almacenar un nuevo usuario
 
-export const register = (data, reset, setError, modifySuccess) => {
+export const register = ({data, reset, setError}) => {
   delete data.confirmPassword;
 
-  fetch("http://localhost:3000/api/users", {
+  return fetch("http://localhost:3000/pending_task/users", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -13,21 +13,19 @@ export const register = (data, reset, setError, modifySuccess) => {
     .then((response) => {
       if (response.ok) {
         reset();
-        modifySuccess();
-        setTimeout(() => {
-          modifySuccess();
-          window.location.href = "http://localhost:5173/pending_task/signIn";
-        }, 300);
+        return true;
       } else {
-        response.json().then((response) => {
+        return response.json().then((response) => {
           setError(response.input, {
             type: "manual",
             message: response.errorMessage,
           });
+          return false;
         })
       }
     })
     .catch((error) => {
+      return false;
       console.error("Error:", error);
     });
 };

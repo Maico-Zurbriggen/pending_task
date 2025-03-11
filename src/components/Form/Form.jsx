@@ -2,7 +2,6 @@ import { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { InputForm, SelectForm } from "./components";
-import "./Form.css";
 
 //Componente para los formularios
 
@@ -22,11 +21,11 @@ export const Form = ({ buttonText, inputs, selects = [], schema, defaultValues, 
 
   //Metodo para llamar a la funcion de agregar nota agregando el parametro data
   const handleFormSubmit = useCallback((data) => {
-    onSubmit(data, reset, setError);
+    onSubmit({data, reset, setError});
   });
 
   return (
-    <form className="form container" onSubmit={handleSubmit(handleFormSubmit)}>
+    <form className="form" onSubmit={handleSubmit(handleFormSubmit)}>
       {inputs.map((input, index) => (
         <InputForm
           key={index}
@@ -47,7 +46,7 @@ export const Form = ({ buttonText, inputs, selects = [], schema, defaultValues, 
           error={errors[select.name]}
         />
       ))}
-      <button type="submit" className="w-100">
+      <button type="submit" className="button">
         {buttonText}
       </button>
     </form>

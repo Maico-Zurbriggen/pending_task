@@ -1,8 +1,12 @@
 //Funcion para eliminar una nota del usuario
-export const deleteNote = async (notes, modifyNotes, indexToDelete, content) => {
+export const deleteNote = async ({notes, indexToDelete, content, project}) => {
   try {
-    const response = await fetch(`http://localhost:3000/api/notes/${content}`, {
+    const response = await fetch(`http://localhost:3000/pending_task/notes/${content}`, {
       method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(project),
       credentials: "include",
     });
 
@@ -11,20 +15,20 @@ export const deleteNote = async (notes, modifyNotes, indexToDelete, content) => 
     }
 
     const updatedNotes = notes.filter((_, index) => index !== indexToDelete);
-    modifyNotes(updatedNotes);
+    return updatedNotes;
   } catch (error) {
     console.error("Error:", error);
   }
 }
 
-export const addNote = async (notes, modifyNotes, data, reset, setError) => {
+export const addNote = async ({notes, data, reset, setError, project}) => {
   try {
-    const response = await fetch("http://localhost:3000/api/notes", {
+    const response = await fetch("http://localhost:3000/pending_task/notes", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify({note: data, project }),
       credentials: "include",
     });
 
@@ -35,7 +39,8 @@ export const addNote = async (notes, modifyNotes, data, reset, setError) => {
     }
 
     reset();
-    modifyNotes([...notes, data]);
+    const updatedNotes = [...notes, data];
+    return updatedNotes;
   } catch (error) {
     console.error("Error:", error);
   }

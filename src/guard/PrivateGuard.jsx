@@ -9,7 +9,7 @@ export const PrivateGuard = () => {
 
   useEffect(() => {
     const verifyAuth = () => {
-      fetch("http://localhost:3000/api/protected", {
+      fetch("http://localhost:3000/pending_task/protected", {
         method: "GET",
         credentials: "include",
       })

@@ -12,7 +12,6 @@ const AppRouter = () => {
 
   return (
     <BrowserRouter basename={basename}>
-      <h1>Pending Task</h1>
       <RoutesWithNotFound> {/**Componente para filtrar rutas no validas */}
         <Route
           path="/pending_task/"

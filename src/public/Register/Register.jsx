@@ -11,19 +11,44 @@ const Register = () => {
 
   const modifySuccess = () => {
     setSuccess(!success);
-  }
+  };
 
   //Metodo para registrar a un usuario
-  const handleRegister = (data, reset, setError) => {
-    register(data, reset, setError, modifySuccess);
+  const handleRegister = ({data, reset, setError}) => {
+    const valueSuccess = register({data, reset, setError});
+    console.log(valueSuccess);
+    if (valueSuccess) {
+      setSuccess(valueSuccess);
+      setTimeout(() => {
+        setSuccess(!valueSuccess);
+        window.location.href = "http://localhost:5173/pending_task/signIn";
+      }, 300);
+    }
   };
 
   return (
     <>
-      <h2>Registrese</h2>
-      <Form buttonText="registrarse" inputs={inputsFormRegister} schema={schemaRegister} defaultValues={defaultValuesFormRegister} onSubmit={handleRegister} />
-      {success ? <p className="exito">Usuario registrado con exito</p> : null}
-      <Links urlLeft={AppRoutes.signIn} textLeft="Ya tienes una cuenta? Inicia sesión" urlRight={AppRoutes.signIn} textRight="Has olvidado tu contraseña? Recupérala" />
+      <header>
+        <h1 className="title">Registrese</h1>
+      </header>
+      <main className="container">
+        <Form
+          buttonText="registrarse"
+          inputs={inputsFormRegister}
+          schema={schemaRegister}
+          defaultValues={defaultValuesFormRegister}
+          onSubmit={handleRegister}
+        />
+        {success ? <p className="exito">Usuario registrado con exito</p> : null}
+      </main>
+      <footer className="links">
+        <Links
+          urlLeft={AppRoutes.signIn}
+          textLeft="Ya tienes una cuenta? Inicia sesión"
+          urlRight={AppRoutes.signIn}
+          textRight="Has olvidado tu contraseña? Recupérala"
+        />
+      </footer>
     </>
   );
 };

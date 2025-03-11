@@ -7,15 +7,32 @@ import { initSession } from "../../api";
 
 const SignIn = () => {
   //Metodo para verificar al usuario y autenticarlo
-  const handleLogin = (data, reset, setError) => {
-    initSession(data, reset, setError);
+  const handleLogin = ({data, reset, setError}) => {
+    initSession({data, reset, setError});
   };
 
   return (
     <>
-      <h2>INICIE SESION</h2>
-      <Form buttonText="ingresar" inputs={inputsFormSignIn} schema={schemaUsers} defaultValues={defaultValuesFormSignIn} onSubmit={handleLogin} />
-      <Links urlLeft={AppRoutes.register} textLeft="No tienes una cuenta? Regístrate" urlRight={AppRoutes.register} textRight="Has olvidado tu contraseña? Recupérala" />
+      <header>
+        <h1 className="title">INICIE SESION</h1>
+      </header>
+      <main className="container">
+        <Form
+          buttonText="ingresar"
+          inputs={inputsFormSignIn}
+          schema={schemaUsers}
+          defaultValues={defaultValuesFormSignIn}
+          onSubmit={handleLogin}
+        />
+      </main>
+      <footer className="links">
+        <Links
+          urlLeft={AppRoutes.register}
+          textLeft="No tienes una cuenta? Regístrate"
+          urlRight={AppRoutes.register}
+          textRight="Has olvidado tu contraseña? Recupérala"
+        />
+      </footer>
     </>
   );
 };

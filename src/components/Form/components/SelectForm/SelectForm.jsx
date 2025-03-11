@@ -1,17 +1,16 @@
 import { Controller } from "react-hook-form";
-import "../../Form.css";
 
 //Componente para los select de un formulario
 
 const SelectForm = ({ name, control, label, error, options }) => {
   return (
-    <label className="w-100" htmlFor={name}>
+    <label className="inputs-container" htmlFor={name}>
       {label}
       <Controller
         name={name}
         control={control}
         render={({ field }) => (
-          <select id={name} {...field}>
+          <select className="inputs" id={name} {...field}>
             <option value="" default>
               --Select--
             </option>

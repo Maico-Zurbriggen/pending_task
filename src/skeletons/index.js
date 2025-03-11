@@ -1,1 +1,1 @@
-export { SkeletonPrincipal } from './SkeletonPrincipal';
+export { SkeletonProjects } from './SkeletonProjects';

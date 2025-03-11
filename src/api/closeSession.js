@@ -1,7 +1,7 @@
 //Funcion para cerrar la sesion del usuario
 
 export const closeSession = () => {
-  fetch("http://localhost:3000/api/logout", {
+  fetch("http://localhost:3000/pending_task/logout", {
     method: "GET",
     credentials: "include",
   })

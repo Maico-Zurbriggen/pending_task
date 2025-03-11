@@ -1,4 +1,4 @@
-export const selectsFormPrincipal = [
+export const selectsFormNotes = [
   {
     name: "importance",
     label: "Select Importance",

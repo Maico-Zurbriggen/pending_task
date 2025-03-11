@@ -1,4 +1,4 @@
-export const inputsFormPrincipal = [
+export const inputsFormNotes = [
   {
     name: "content",
     label: "Enter Content",
