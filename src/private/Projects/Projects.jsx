@@ -79,7 +79,7 @@ export const Projects = ({projects, modifyProjects}) => {
         <h1 className="title">Projects</h1>
       </header>
       <main className="container">
-        <details className="detail-projects">
+        <details className="detail-projects detail">
           <summary className="summary">New project</summary>
           <div className="content-detail">
             <Form

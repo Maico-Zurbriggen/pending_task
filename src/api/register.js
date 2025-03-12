@@ -2,6 +2,7 @@
 
 export const register = ({data, reset, setError}) => {
   delete data.confirmPassword;
+  data.projects = [];
 
   return fetch("http://localhost:3000/pending_task/users", {
     method: "POST",
@@ -24,8 +25,7 @@ export const register = ({data, reset, setError}) => {
         })
       }
     })
-    .catch((error) => {
+    .catch(() => {
       return false;
-      console.error("Error:", error);
     });
 };

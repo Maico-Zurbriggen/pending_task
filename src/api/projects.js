@@ -6,6 +6,7 @@ export const addProject = async ({ projects, data, reset, setError }) => {
   const day = String(now.getDay()).padStart(2, "0");
 
   data.timeInit = `${year}-${month}-${day}`;
+  data.notes = [];
 
   try {
     const response = await fetch('http://localhost:3000/pending_task/projects', {

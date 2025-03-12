@@ -1,13 +1,13 @@
 //Funcion para eliminar una nota del usuario
 export const deleteNote = async ({notes, indexToDelete, content, project}) => {
+  const params = new URLSearchParams({
+    project: project
+  });
+
   try {
-    const response = await fetch(`http://localhost:3000/pending_task/notes/${content}`, {
+    const response = await fetch(`http://localhost:3000/pending_task/notes/${content}?${params}`, {
       method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(project),
-      credentials: "include",
+      credentials: "include"
     });
 
     if (!response.ok) {
