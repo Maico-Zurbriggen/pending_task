@@ -1,9 +1,9 @@
 //Modelo que contiene las rutas validas de nuestra pagina
 export const AppRoutes = {
-  register: "/pending_task/register",
-  signIn: "/pending_task/signIn",
+  register: "/register",
+  signIn: "/signIn",
   private: {
-    root: '/pending_task/private',
-    projects: "/pending_task/private/projects",
+    root: '/private',
+    projects: "/private/projects",
   }
 };
