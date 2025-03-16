@@ -18,7 +18,7 @@ export const Projects = ({projects, modifyProjects}) => {
 
   useEffect(() => {
     const getProjects = () => {
-      fetch("http://localhost:3000/pending_task/projects", {
+      fetch("https://political-johnette-maico-gabriel-zurbriggen-1055c233.koyeb.app/pending_task/projects", {
         method: "GET",
         credentials: "include",
       })

@@ -5,7 +5,7 @@ export const deleteNote = async ({notes, indexToDelete, content, project}) => {
   });
 
   try {
-    const response = await fetch(`http://localhost:3000/pending_task/notes/${content}?${params}`, {
+    const response = await fetch(`https://political-johnette-maico-gabriel-zurbriggen-1055c233.koyeb.app/pending_task/notes/${content}?${params}`, {
       method: "DELETE",
       credentials: "include"
     });
@@ -23,7 +23,7 @@ export const deleteNote = async ({notes, indexToDelete, content, project}) => {
 
 export const addNote = async ({notes, data, reset, setError, project}) => {
   try {
-    const response = await fetch("http://localhost:3000/pending_task/notes", {
+    const response = await fetch("https://political-johnette-maico-gabriel-zurbriggen-1055c233.koyeb.app/pending_task/notes", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

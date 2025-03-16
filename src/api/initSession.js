@@ -1,7 +1,7 @@
 //Funcion que verifica si existe un determinado usuario
 
 export const initSession = ({data, reset, setError}) => {
-  fetch("http://localhost:3000/pending_task/login", {
+  fetch("https://political-johnette-maico-gabriel-zurbriggen-1055c233.koyeb.app/pending_task/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

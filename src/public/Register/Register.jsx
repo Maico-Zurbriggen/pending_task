@@ -9,13 +9,9 @@ import { register } from "../../api";
 const Register = () => {
   const [success, setSuccess] = useState(false);
 
-  const modifySuccess = () => {
-    setSuccess(!success);
-  };
-
   //Metodo para registrar a un usuario
-  const handleRegister = ({data, reset, setError}) => {
-    const valueSuccess = register({data, reset, setError});
+  const handleRegister = async ({data, reset, setError}) => {
+    const valueSuccess = await register({data, reset, setError});
     console.log(valueSuccess);
     if (valueSuccess) {
       setSuccess(valueSuccess);

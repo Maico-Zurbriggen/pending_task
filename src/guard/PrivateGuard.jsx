@@ -9,12 +9,13 @@ export const PrivateGuard = () => {
 
   useEffect(() => {
     const verifyAuth = () => {
-      fetch("http://localhost:3000/pending_task/protected", {
+      fetch("https://political-johnette-maico-gabriel-zurbriggen-1055c233.koyeb.app/pending_task/protected", {
         method: "GET",
         credentials: "include",
       })
         .then((response) => {
           if (!response.ok) {
+            console.log("ERROR")
             setIsAuthenticated(false);
             throw new Error("Usuario no autenticado");
           }

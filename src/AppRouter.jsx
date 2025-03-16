@@ -6,7 +6,7 @@ import { PrivateGuard } from "./guard/PrivateGuard";
 import { PrivateRouter } from "./private/PrivateRouter";
 
 const basename =
-  process.env.NODE_ENV === "development" ? "/" : "/pending_task/"; //Especificamos la base de nuestras rutas
+  process.env.NODE_ENV === "development" ? "/" : "/"; //Especificamos la base de nuestras rutas
 
 const AppRouter = () => {
 
