@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Route } from "react-router-dom";
+import { HashRouter, Navigate, Route } from "react-router-dom";
 import { RoutesWithNotFound } from "./components";
 import { Register, SignIn } from "./public";
 import { AppRoutes } from "./models";
@@ -11,7 +11,7 @@ const basename =
 const AppRouter = () => {
 
   return (
-    <BrowserRouter basename={basename}>
+    <HashRouter basename={basename}>
       <RoutesWithNotFound> {/**Componente para filtrar rutas no validas */}
         <Route
           path="/pending_task/"
@@ -26,7 +26,7 @@ const AppRouter = () => {
           />
         </Route>
       </RoutesWithNotFound>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
