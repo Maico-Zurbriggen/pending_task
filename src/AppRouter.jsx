@@ -14,7 +14,7 @@ const AppRouter = () => {
     <HashRouter basename={basename}>
       <RoutesWithNotFound> {/**Componente para filtrar rutas no validas */}
         <Route
-          path="/pending_task/"
+          path="/"
           element={<Navigate to={AppRoutes.signIn} />}
         />
         <Route path={AppRoutes.register} element={<Register />} />
