@@ -90,15 +90,7 @@ export const ProjectPage = () => {
       <button className="button project-button" onClick={backToProjects}>
         projects
       </button>
-      <header className="project-container">
-        <section className="data-project">
-          <h1>{name}</h1>
-          <p>init: {timeInit}</p>
-          {timeLimit ? <p>finish planified: {timeLimit}</p> : null}
-        </section>
-        <p className="description-project">{description}</p>
-      </header>
-      <main className="container">
+      <header className="container">
         <details className="detail-notes detail">
           <summary className="summary">New note</summary>
           <div className="content-detail">
@@ -112,18 +104,29 @@ export const ProjectPage = () => {
             />
           </div>
         </details>
-        <section className="notes">
-          {notes.map((note, index) => (
-            <Note
-              key={index}
-              content={note.content}
-              importance={note.importance}
-              deleteNote={() =>
-                handleDeleteNote({ index, content: note.content })
-              }
-            />
-          ))}
-          {notes.length ? null : <p>Aún no hay notas</p>}
+      </header>
+      <main className="project-container">
+        <section className="data-project">
+          <h1>{name}</h1>
+          <p>init: {timeInit}</p>
+          {timeLimit ? <p>finish planified: {timeLimit}</p> : null}
+        </section>
+        <div className="line-separator"></div>
+        <section className="description-notes">
+          <p>{description}</p>
+          <div className="notes-container">
+            {notes.map((note, index) => (
+              <Note
+                key={index}
+                content={note.content}
+                importance={note.importance}
+                deleteNote={() =>
+                  handleDeleteNote({ index, content: note.content })
+                }
+              />
+            ))}
+            {notes.length ? null : <p>Aún no hay notas</p>}
+          </div>
         </section>
       </main>
     </>
