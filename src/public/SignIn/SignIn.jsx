@@ -27,9 +27,9 @@ const SignIn = () => {
       </main>
       <footer className="links">
         <Links
-          urlLeft={AppRoutes.register}
+          urlLeft="https://maico-zurbriggen.github.io/pending_task/#/register"
           textLeft="No tienes una cuenta? Regístrate"
-          urlRight={AppRoutes.register}
+          urlRight="https://maico-zurbriggen.github.io/pending_task/#/register"
           textRight="Has olvidado tu contraseña? Recupérala"
         />
       </footer>

@@ -57,7 +57,7 @@ export const ProjectPage = () => {
 
   const backToProjects = () => {
     window.location.href =
-      "http://localhost:5173/pending_task/private/projects";
+      "https://maico-zurbriggen.github.io/pending_task/#/private/projects";
   };
 
   const handleDeleteNote = async ({ index, content }) => {

@@ -24,7 +24,7 @@ export const Projects = ({projects, modifyProjects}) => {
       })
         .then((response) => {
           if (!response.ok) {
-            window.location.href = "http://localhost:5173/pending_task/signIn";
+            window.location.href = "https://maico-zurbriggen.github.io/pending_task/#/signIn";
             throw new Error("Usuario no autenticado");
           }
 

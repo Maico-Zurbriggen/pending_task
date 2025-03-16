@@ -12,7 +12,7 @@ export const initSession = ({data, reset, setError}) => {
     .then((response) => {
       if (response.ok) {
         reset();
-        window.location.href = "http://localhost:5173/pending_task/private";
+        window.location.href = "https://maico-zurbriggen.github.io/pending_task/#/private";
       } else {
         response.json().then((response) => {
           setError(response.input, {
@@ -21,7 +21,7 @@ export const initSession = ({data, reset, setError}) => {
           });
         });
         if (response.status === 409) {
-          window.location.href = "http://localhost:5173/pending_task/private";
+          window.location.href = "https://maico-zurbriggen.github.io/pending_task/#/private";
         }
       }
     })

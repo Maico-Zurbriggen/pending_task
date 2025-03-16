@@ -17,7 +17,7 @@ const Register = () => {
       setSuccess(valueSuccess);
       setTimeout(() => {
         setSuccess(!valueSuccess);
-        window.location.href = "http://localhost:5173/pending_task/signIn";
+        window.location.href = "https://maico-zurbriggen.github.io/pending_task/#/signIn";
       }, 300);
     }
   };
@@ -39,9 +39,9 @@ const Register = () => {
       </main>
       <footer className="links">
         <Links
-          urlLeft={AppRoutes.signIn}
+          urlLeft="https://maico-zurbriggen.github.io/pending_task/#/signIn"
           textLeft="Ya tienes una cuenta? Inicia sesión"
-          urlRight={AppRoutes.signIn}
+          urlRight="https://maico-zurbriggen.github.io/pending_task/#/signIn"
           textRight="Has olvidado tu contraseña? Recupérala"
         />
       </footer>
