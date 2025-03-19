@@ -38,12 +38,10 @@ export const ProjectPage = () => {
           setLoading(false);
 
           if (response.status === 204) {
-            console.log("NADA");
             return;
           }
 
           response.json().then((responseData) => {
-            console.log("NOTAS");
             setNotes(responseData);
           });
         })

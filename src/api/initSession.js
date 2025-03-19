@@ -11,6 +11,7 @@ export const initSession = ({data, reset, setError}) => {
   })
     .then((response) => {
       if (response.ok) {
+        console.log(response.cookie);
         reset();
         window.location.href = "https://maico-zurbriggen.github.io/pending_task/#/private";
       } else {
