@@ -296,6 +296,8 @@ button:hover {
 @media(max-width: 768px) {
     .project-container {
       flex-direction: column;
+      justify-content: start;
+      text-align: center;
     }
 
     .data-project {
