@@ -298,6 +298,14 @@ button:hover {
       flex-direction: column;
     }
 
+    .data-project {
+      width: 100%;
+    }
+  
+    .description-notes {
+      width: 100%;
+    }
+
     .line-separator {
       width: 100%;
       height: 1px;

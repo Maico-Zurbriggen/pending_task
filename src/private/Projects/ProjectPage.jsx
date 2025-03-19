@@ -107,7 +107,7 @@ export const ProjectPage = () => {
         <section className="data-project">
           <h1>{name}</h1>
           <p>init: {timeInit}</p>
-          {timeLimit ? <p>finish planified: {timeLimit}</p> : null}
+          {timeLimit ? <p>finish: {timeLimit}</p> : null}
         </section>
         <div className="line-separator"></div>
         <section className="description-notes">
