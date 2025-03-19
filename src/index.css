@@ -198,6 +198,18 @@ button:hover {
   background-color: var(--hover);
 }
 
+@media(max-width: 768px) {
+  .project {
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+  }
+
+  .button-project {
+    width: 100%;
+  }
+}
+
 /*NOTE*/
 .note {
   width: 100%;
@@ -218,23 +230,6 @@ button:hover {
   overflow: auto;
 }
 
-::-webkit-scrollbar {
-  width: 12px; /* Ancho de la barra */
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--buttons); /* Color de la barra */
-  border-radius: 6px; /* Bordes redondeados */
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--hover); /* Color al pasar el mouse por encima */
-}
-
-::-webkit-scrollbar-track {
-  background: var(--light); /* Fondo de la pista */
-}
-
 .button-note {
   width: 100px;
 }
@@ -249,6 +244,18 @@ button:hover {
 
 .high {
   background-color: var(--highs);
+}
+
+@media(max-width: 768px) {
+  .note {
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+  }
+
+  .button-note {
+    width: 100%;
+  }
 }
 
 /*PROJECT PAGE*/
@@ -286,12 +293,23 @@ button:hover {
   margin: 0 5px;
 }
 
+@media(max-width: 768px) {
+    .project-container {
+      flex-direction: column;
+    }
+
+    .line-separator {
+      width: 100%;
+      height: 1px;
+    }
+}
+
 /*LINKS*/
 
 .links {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .link {
@@ -333,4 +351,23 @@ button:hover {
   color: var(--success);
   font-size: 12px;
   font-weight: 700;
+}
+
+/*SCROLLBAR*/
+
+::-webkit-scrollbar {
+  width: 12px; /* Ancho de la barra */
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--buttons); /* Color de la barra */
+  border-radius: 6px; /* Bordes redondeados */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--hover); /* Color al pasar el mouse por encima */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light); /* Fondo de la pista */
 }

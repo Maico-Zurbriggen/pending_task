@@ -1,5 +1,5 @@
 import { Form, Links } from "../../components";
-import { AppRoutes, schemaUsers } from "../../models";
+import { schemaUsers } from "../../models";
 import { inputsFormSignIn, defaultValuesFormSignIn } from "../../constants";
 import { initSession } from "../../api";
 
@@ -7,32 +7,28 @@ import { initSession } from "../../api";
 
 const SignIn = () => {
   //Metodo para verificar al usuario y autenticarlo
-  const handleLogin = ({data, reset, setError}) => {
-    initSession({data, reset, setError});
+  const handleLogin = ({ data, reset, setError }) => {
+    initSession({ data, reset, setError });
   };
 
   return (
     <>
       <header>
-        <h1 className="title">INICIE SESION</h1>
+        <h1 className="title">Log In</h1>
       </header>
       <main className="container">
         <Form
-          buttonText="ingresar"
+          buttonText="enter"
           inputs={inputsFormSignIn}
           schema={schemaUsers}
           defaultValues={defaultValuesFormSignIn}
           onSubmit={handleLogin}
         />
       </main>
-      <footer className="links">
-        <Links
-          urlLeft="https://maico-zurbriggen.github.io/pending_task/#/register"
-          textLeft="No tienes una cuenta? Regístrate"
-          urlRight="https://maico-zurbriggen.github.io/pending_task/#/register"
-          textRight="Has olvidado tu contraseña? Recupérala"
-        />
-      </footer>
+      <Links
+        urlLeft="https://maico-zurbriggen.github.io/pending_task/#/register"
+        textLeft="Don't have an account? Sign Up"
+      />
     </>
   );
 };

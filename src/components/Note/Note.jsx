@@ -5,7 +5,7 @@ export const Note = ({ content, importance, deleteNote }) => {
     <article className={`note ${importance}`}>
       <p className="content-note">{content}</p>
       <button className="button button-note" onClick={deleteNote}>
-        Eliminar
+        Delete
       </button>
     </article>
   );

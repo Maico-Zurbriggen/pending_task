@@ -93,7 +93,7 @@ export const ProjectPage = () => {
           <summary className="summary">New note</summary>
           <div className="content-detail">
             <Form
-              buttonText="subir"
+              buttonText="enter"
               inputs={inputsFormNotes}
               selects={selectsFormNotes}
               schema={schemaNotes}

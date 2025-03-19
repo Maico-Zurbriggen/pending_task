@@ -83,7 +83,7 @@ export const Projects = ({projects, modifyProjects}) => {
           <summary className="summary">New project</summary>
           <div className="content-detail">
             <Form
-              buttonText="subir"
+              buttonText="create"
               inputs={inputsFormProjects}
               schema={schemaProjects}
               defaultValues={defaultValuesFormProjects}

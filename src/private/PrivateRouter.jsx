@@ -22,7 +22,7 @@ export const PrivateRouter = () => {
   return (
     <>
       <button onClick={cerrarSesion} className="button close-button">
-        Cerrar Sesión
+        Close Session
       </button>
       <RoutesWithNotFound>
         <Route path="/" element={<Navigate to={AppRoutes.private.projects} />} />

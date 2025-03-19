@@ -3,7 +3,7 @@ export const Project = ({ name, deleteProject, modifyProjectSelected }) => {
     <article className="project">
       <p className="text-project" onClick={() => modifyProjectSelected(name)}>{name}</p>
       <button className="button button-project" onClick={deleteProject}>
-        Eliminar
+        Delete
       </button>
     </article>
   );
