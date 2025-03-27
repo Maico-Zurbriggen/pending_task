@@ -9,7 +9,7 @@ export const PrivateGuard = () => {
 
   useEffect(() => {
     const verifyAuth = () => {
-      fetch("https://political-johnette-maico-gabriel-zurbriggen-1055c233.koyeb.app/pending_task/protected", {
+      fetch("https://backend-pending-task.onrender.com/pending_task/protected", {
         method: "GET",
         credentials: "include",
       })

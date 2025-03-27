@@ -9,7 +9,7 @@ export const addProject = async ({ projects, data, reset, setError }) => {
   data.notes = [];
 
   try {
-    const response = await fetch('https://political-johnette-maico-gabriel-zurbriggen-1055c233.koyeb.app/pending_task/projects', {
+    const response = await fetch('https://backend-pending-task.onrender.com/pending_task/projects', {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -34,7 +34,7 @@ export const addProject = async ({ projects, data, reset, setError }) => {
 
 export const deleteProject = async ({ projects, indexToDelete, name }) => {
   try {
-    const response = await fetch(`https://political-johnette-maico-gabriel-zurbriggen-1055c233.koyeb.app/pending_task/projects/${name}`, {
+    const response = await fetch(`https://backend-pending-task.onrender.com/pending_task/projects/${name}`, {
       method: "DELETE",
       credentials: "include"
     });

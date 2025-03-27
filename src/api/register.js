@@ -4,7 +4,7 @@ export const register = ({data, reset, setError}) => {
   delete data.confirmPassword;
   data.projects = [];
 
-  return fetch("https://political-johnette-maico-gabriel-zurbriggen-1055c233.koyeb.app/pending_task/users", {
+  return fetch("https://backend-pending-task.onrender.com/pending_task/users", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

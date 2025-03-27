@@ -1,7 +1,7 @@
 //Funcion para cerrar la sesion del usuario
 
 export const closeSession = () => {
-  fetch("https://political-johnette-maico-gabriel-zurbriggen-1055c233.koyeb.app/pending_task/logout", {
+  fetch("https://backend-pending-task.onrender.com/pending_task/logout", {
     method: "GET",
     credentials: "include",
   })

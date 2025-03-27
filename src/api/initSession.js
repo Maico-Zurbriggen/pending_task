@@ -1,7 +1,7 @@
 //Funcion que verifica si existe un determinado usuario
 
 export const initSession = ({data, reset, setError}) => {
-  fetch("https://political-johnette-maico-gabriel-zurbriggen-1055c233.koyeb.app/pending_task/login", {
+  fetch("https://backend-pending-task.onrender.com/pending_task/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -11,7 +11,6 @@ export const initSession = ({data, reset, setError}) => {
   })
     .then((response) => {
       if (response.ok) {
-        console.log(response.cookie);
         reset();
         window.location.href = "https://maico-zurbriggen.github.io/pending_task/#/private";
       } else {

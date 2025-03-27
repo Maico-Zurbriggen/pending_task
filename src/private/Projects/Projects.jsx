@@ -18,7 +18,7 @@ export const Projects = ({projects, modifyProjects}) => {
 
   useEffect(() => {
     const getProjects = () => {
-      fetch("https://political-johnette-maico-gabriel-zurbriggen-1055c233.koyeb.app/pending_task/projects", {
+      fetch("https://backend-pending-task.onrender.com/pending_task/projects", {
         method: "GET",
         credentials: "include",
       })

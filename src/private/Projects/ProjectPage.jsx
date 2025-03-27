@@ -25,7 +25,7 @@ export const ProjectPage = () => {
     });
 
     const getNotes = () => {
-      fetch(`https://political-johnette-maico-gabriel-zurbriggen-1055c233.koyeb.app/pending_task/notes?${params}`, {
+      fetch(`https://backend-pending-task.onrender.com/pending_task/notes?${params}`, {
         method: "GET",
         credentials: "include",
       })
